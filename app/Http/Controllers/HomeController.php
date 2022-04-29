@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
         $data=food::all();
         $data2=chef::all();
-       $type= Auth::user()->usertype;
+       $type= Auth::user()->current_team_id;
        if($type=='1'){
            return view('admin.adminhome');
        }
