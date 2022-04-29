@@ -13,14 +13,14 @@
                                 <div class="phone">
                                     <i class="fa fa-phone"></i>
                                     <h4>Phone Numbers</h4>
-                                    <span><a href="#">+8801969858623</a><br><a href="#">+8801711206643</a></span>
+                                    <span><a href="#">+8801717196723</a><br><a href="#">+8801611755951</a></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="message">
                                     <i class="fa fa-envelope"></i>
                                     <h4>Emails</h4>
-                                    <span><a href="#">fardinkarim03@gmail.com</a><br><a href="#">info@company.com</a></span>
+                                    <span><a href="#">tahfim1@gmail.com</a><br><a href="#">info@company.com</a></span>
                                 </div>
                             </div>
                         </div>
