@@ -26,7 +26,7 @@ class AdminContollerTest extends TestCase
     }
     public function test_deleteuser() {
         $this->data = new AdminController;
-        $id = user::where('usertype', '0')->inRandomOrder()->limit(1)->get();
+        $id = user::where('current_team_id', '0')->inRandomOrder()->limit(1)->get();
         $response = $this->data->deleteuser($id[0]->id);
         $this->assertTrue(true);
     }
@@ -39,7 +39,7 @@ class AdminContollerTest extends TestCase
     public function test_upload() {
         $this->data = new AdminController;
         $request = new Request(['title' => 'Food Title',
-        'price' => '$9',
+        'price' => '20 tk',
         'description' => 'Description',
         'image' => NULL,]);
         $response = $this->data->upload($request);
@@ -61,19 +61,19 @@ class AdminContollerTest extends TestCase
     public function test_update() {
         $this->data = new AdminController;
         $request = new Request(['title' => 'Sample',
-        'price' => '$9',
+        'price' => '20 tk',
         'description' => 'Sample Description',
         'image' => NULL,]);
-        $id = food::where('title', 'Chowmein')->inRandomOrder()->limit(1)->get();
+        $id = food::where('title', 'Black Coffee')->inRandomOrder()->limit(1)->get();
         $response = $this->data->update($request, $id[0]->id);
         $this->assertTrue(true);
     }
     public function test_reservation() {
         $this->data = new AdminController;
-        $request = new Request(['name' => 'Mahin',
-        'email' => 'mahin@gmail.com',
-        'phone' => '01987654321',
-        'chef' => 'Sanji','guest' => '14','date' => '27.12.2022','time' => '20:30','message' => 'Be on Time',]);
+        $request = new Request(['name' => 'Customer1',
+        'email' => 'customer1@gmail.com',
+        'phone' => '0111119888',
+        'chef' => 'Abir','guest' => '20','date' => '25.05.2022','time' => '10.00','message' => 'Make reservation',]);
         $response = $this->data->reservation($request);
         $this->assertTrue(true);
     }
@@ -93,7 +93,7 @@ class AdminContollerTest extends TestCase
         $this->data = new AdminController;
         $request = new Request(['name' => 'Sample',
         'speciality' => 'nothing',
-        'email' => 'naruto@gmail.com',
+        'email' => 'sample@gmail.com',
         'ratings' => '3','image'=>NULL]);
         $response = $this->data->uploadchef($request);
         $this->assertTrue(true);
@@ -108,9 +108,9 @@ class AdminContollerTest extends TestCase
         $this->data = new AdminController;
         $request = new Request(['name' => 'Sample',
         'speciality' => 'nothing',
-        'email' => 'naruto@gmail.com',
+        'email' => 'sample@gmail.com',
         'ratings' => '3','image'=>NULL,]);
-        $id = chef::where('name', 'Sanji')->inRandomOrder()->limit(1)->get();
+        $id = chef::where('name', 'Abir')->inRandomOrder()->limit(1)->get();
         $response = $this->data->updatefoodchef($request, $id[0]->id);
         $this->assertTrue(true);
     }
