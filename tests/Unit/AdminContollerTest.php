@@ -24,12 +24,7 @@ class AdminContollerTest extends TestCase
         $data = user::all();
         $this->assertEquals($response , view("admin.user", compact('data')));
     }
-    public function test_deleteuser() {
-        $this->data = new AdminController;
-        $id = user::where('current_team_id', '0')->inRandomOrder()->limit(1)->get();
-        $response = $this->data->deleteuser($id[0]->id);
-        $this->assertTrue(true);
-    }
+   
     public function test_foodmenu() {
         $this->data = new AdminController;
         $response = $this->data->foodmenu();
@@ -58,16 +53,7 @@ class AdminContollerTest extends TestCase
         $data = food::find(2);
         $this->assertEquals($response , view("admin.updateview", compact("data")));
     }
-    public function test_update() {
-        $this->data = new AdminController;
-        $request = new Request(['title' => 'Sample',
-        'price' => '20 tk',
-        'description' => 'Sample Description',
-        'image' => NULL,]);
-        $id = food::where('title', 'Black Coffee')->inRandomOrder()->limit(1)->get();
-        $response = $this->data->update($request, $id[0]->id);
-        $this->assertTrue(true);
-    }
+  
     public function test_reservation() {
         $this->data = new AdminController;
         $request = new Request(['name' => 'Customer1',
@@ -89,36 +75,12 @@ class AdminContollerTest extends TestCase
         $data = chef::all();
         $this->assertEquals($response , view("admin.adminchef", compact("data")));
     }
-    public function test_uploadchef() {
-        $this->data = new AdminController;
-        $request = new Request(['name' => 'Sample',
-        'speciality' => 'nothing',
-        'email' => 'sample@gmail.com',
-        'ratings' => '3','image'=>NULL]);
-        $response = $this->data->uploadchef($request);
-        $this->assertTrue(true);
-    }
+    
     public function test_updatechef() {
         $this->data = new AdminController;
         $response = $this->data->updatechef(2);
         $data = chef::find(2);
         $this->assertEquals($response , view("admin.updatechef", compact("data")));
-    }
-       public function test_updatefoodchef() {
-        $this->data = new AdminController;
-        $request = new Request(['name' => 'Sample',
-        'speciality' => 'nothing',
-        'email' => 'sample@gmail.com',
-        'ratings' => '3','image'=>NULL,]);
-        $id = chef::where('name', 'Abir')->inRandomOrder()->limit(1)->get();
-        $response = $this->data->updatefoodchef($request, $id[0]->id);
-        $this->assertTrue(true);
-    }
-       public function test_deletefoodchef() {
-            $this->data = new AdminController;
-            $id = chef::where('name', 'Sample')->inRandomOrder()->limit(1)->get();
-            $response = $this->data->deletefoodchef($id[0]->id);
-            $this->assertTrue(true);
-        }
+   }
 
 }
